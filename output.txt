@@ -1,0 +1,41 @@
+﻿=================================================================
+       CAMPUS LIBRARY MANAGEMENT SYSTEM - DEMO RUN
+=================================================================
+
+--- 0. Abstract Class Instantiation Check ---
+Verified: Cannot instantiate abstract LibraryItem directly.
+Exception caught: Can't instantiate abstract class LibraryItem without an implementation for abstract method 'late_fee'
+
+--- 1. Borrowing and 'Already Borrowed' Error Handling ---
+Success: Alice borrowed: Book: Python 101 by A. Rao (ID 1)
+Could not borrow (expected error): Cannot borrow 'Python 101': Item is already borrowed.
+
+--- 2. Borrow-Limit and Not-Borrowed Error Handling ---
+Success: Bob borrowed: Magazine: Tech Monthly Issue #42 (ID 2)
+Could not borrow (expected error): Cannot borrow 'Inception': Bob has reached the borrowing limit of 1 item(s).
+Could not return (expected error): Cannot return 'Inception': Item was not borrowed by Alice.
+
+--- Return Processing with Late Fees ---
+Alice returned 'Python 101' (2 days late) -> Late Fee: Rs 4
+Bob returned 'Tech Monthly' (on time) -> Late Fee: Rs 0
+
+--- 3. Polymorphism: Unified Interface for Different Item Types ---
+Book: Python 101 by A. Rao (ID 1) -> late fee for 3 days: Rs 6
+Magazine: Tech Monthly Issue #42 (ID 2) -> late fee for 3 days: Rs 3
+DVD: Inception (148 mins) (ID 3) -> late fee for 3 days: Rs 15
+
+--- 4. Class vs Instance Attributes ---
+Total items created (via LibraryItem.total_items): 3
+Total items created (via Book.total_items): 3
+
+--- 5. Encapsulation Verification ---
+Verified: Cannot access private '__available' directly from outside.
+AttributeError caught: 'Book' object has no attribute '__available'
+Proper access via public method is_available(): True
+Verified: Cannot access private '__borrowed' directly from outside.
+AttributeError caught: 'Member' object has no attribute '__borrowed'
+Proper access via public method borrowed_titles(): []
+
+=================================================================
+                     DEMO RUN COMPLETED
+=================================================================
